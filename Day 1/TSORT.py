@@ -1,16 +1,19 @@
 # Modified Implementation of
 # Count sort
-import numpy as np
-def count(a,i):
-    k = np.zeros(i+1)
-    ans = []
-    for j in a:
-        k[j] += 1
+
+def count(ab,i):
+    c = [0]*(i+1) ## Valid
+    #print("c is",c)
+    for j in ab:
+        c[j] += 1
+    k = 0
+    a = [0]*len(ab) ## Valid
     for j in range(i+1):
-        if k[j]:
-            for m in range(int(k[j])):
-                ans.append(j)
-    return list(map(str,ans))
+        if c[j] :
+            for m in range(c[j]):
+                a[k] = j
+                k += 1
+    return a
 t =int(input())
 n = []
 while(t>0):
